@@ -1,17 +1,15 @@
 package com.dreamstations.partyhistory.View;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.dreamstations.partyhistory.Adapter.ViewPagerAdapter;
 import com.dreamstations.partyhistory.R;
@@ -50,6 +48,12 @@ public class Act_Main extends AppCompatActivity{
         setImages();
         PagerAdapter vpAdapter=new ViewPagerAdapter(getApplicationContext(),images);
         titlevp.setAdapter(vpAdapter);
+        findViewById(R.id.home_trip).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Trip.class));
+            }
+        });
     }
 
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/item_trip_img" />
+
+        <TextView
+            style="@android:style/TextAppearance.Large.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#5F5F5F"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="中国劳动组合书记部旧址陈列馆" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/divide">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_menu_mapmode" />
+
+                <TextView
+                    style="@android:style/TextAppearance.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="地址：成都北路893弄3、5、7号" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/divide">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_menu_directions" />
+
+                <TextView
+                    style="@android:style/TextAppearance.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="交通：轨道交通1号线,公交15、20、136、927路" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/white"
+            android:padding="@dimen/padding">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="　　中国劳动组合书记部成立于1921年8月11日，是中国共产党公开领导工人运动的第一个总机构，是中华全国总工会的前身。基本陈列以翔实的史料展示及浮雕、蜡像、场景复原、多媒体演示等多种形式再现了中国劳动组合书记部诞生的历史背景、组织机构、活动情况及光辉业绩，如：“省港大罢工、二七大罢工、安源路矿大罢工”大型组合场景，中国劳动组合书记部编辑部会议场景等。凸现了书记部的重要历史地位及其组织、发动、领导工人阶级开展革命运动的斗争历程，直观而生动，富于教育感染力。" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
