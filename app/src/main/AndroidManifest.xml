@@ -15,8 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".View.Trip"/>
-        <activity android:name=".View.Trip_Detail"/>
+        <activity android:name=".View.Act_Trip"/>
+        <activity android:name=".View.Act_Trip_Detail"/>
+        <activity android:name=".View.Act_Media"/>
     </application>
 
 </manifest>

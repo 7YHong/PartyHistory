@@ -98,6 +98,7 @@
             <!--第二列-->
 
             <com.dreamstations.partyhistory.View.Item_Home
+                android:id="@+id/home_media"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

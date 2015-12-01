@@ -51,7 +51,13 @@ public class Act_Main extends AppCompatActivity{
         findViewById(R.id.home_trip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Trip.class));
+                startActivity(new Intent(getApplicationContext(), Act_Trip.class));
+            }
+        });
+        findViewById(R.id.home_media).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Act_Media.class));
             }
         });
     }
