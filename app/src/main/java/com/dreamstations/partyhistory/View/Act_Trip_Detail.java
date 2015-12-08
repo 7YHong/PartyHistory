@@ -26,23 +26,23 @@ public class Act_Trip_Detail extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //获取屏幕信息
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        density = dm.density;
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        density = dm.density;
         setContentView(R.layout.act_trip_detail);
-        gridView= (GridView) findViewById(R.id.home_trip_grid);
-        ListAdapter adapter=new ImgAdapter();
-        gridView.setAdapter(adapter);
-        int size=imgs.length;
-        //计算每张图的宽度与总的宽度
-        int itemWidth = (int) ((dm.widthPixels-10)/3);
-        int totalWidth = itemWidth*size;
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                totalWidth, ViewGroup.LayoutParams.MATCH_PARENT);
-        gridView.setLayoutParams(params);
-        gridView.setColumnWidth(itemWidth);
-        gridView.setHorizontalSpacing(10);
-        gridView.setNumColumns(size);
+//        gridView= (GridView) findViewById(R.id.home_trip_grid);
+//        ListAdapter adapter=new ImgAdapter();
+//        gridView.setAdapter(adapter);
+//        int size=imgs.length;
+//        //计算每张图的宽度与总的宽度
+//        int itemWidth = (int) ((dm.widthPixels-10)/3);
+//        int totalWidth = itemWidth*size;
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+//                totalWidth, ViewGroup.LayoutParams.MATCH_PARENT);
+//        gridView.setLayoutParams(params);
+//        gridView.setColumnWidth(itemWidth);
+//        gridView.setHorizontalSpacing(10);
+//        gridView.setNumColumns(size);
     }
 
 

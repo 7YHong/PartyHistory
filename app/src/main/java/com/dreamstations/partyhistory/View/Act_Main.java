@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import com.dreamstations.partyhistory.Adapter.ViewPagerAdapter;
 import com.dreamstations.partyhistory.R;
 
+import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,9 @@ public class Act_Main extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
+        //初始化xUtils
+        x.Ext.init(getApplication());
+        x.Ext.setDebug(true);
         initViews();
     }
 

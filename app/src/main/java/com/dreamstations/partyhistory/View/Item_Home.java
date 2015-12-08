@@ -25,12 +25,17 @@ public class Item_Home extends LinearLayout{
     }
 
     public Item_Home(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
     @SuppressLint("NewApi")
     public Item_Home(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(attrs);
+    }
+
+    void init(AttributeSet attrs){
         inflate(getContext(), R.layout.item_home, this);
         LinearLayout layout= (LinearLayout) this.getChildAt(0);
         TypedArray ta=getContext().obtainStyledAttributes(attrs,mAttrs);
