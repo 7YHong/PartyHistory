@@ -28,6 +28,7 @@ public class Act_Trip_Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.act_trip_detail);
+        setTitle("中国劳动组合书记部旧址");
         gallery = (ViewPager) findViewById(R.id.trip_detail_gallery);
         ((LinearLayout)gallery.getParent()).setOnTouchListener(new View.OnTouchListener() {
             @Override

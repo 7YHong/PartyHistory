@@ -46,8 +46,7 @@
                 android:layout_marginRight="@dimen/divide"
                 android:layout_weight="1"
                 android:src="@drawable/icon_home_announcement"
-                android:text="专题"
-                android:onClick="clicktest"/>
+                android:text="专题"/>
             <!--第二列-->
             <com.dreamstations.partyhistory.View.Item_Home
                 android:id="@+id/home_trip"

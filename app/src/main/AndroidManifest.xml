@@ -15,9 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".View.Act_Trip"/>
+        <activity android:name=".View.Act_Trip"
+            android:label="红色旅游"/>
         <activity android:name=".View.Act_Trip_Detail"/>
         <activity android:name=".View.Act_Media"/>
+        <activity android:name=".View.Media_Book_List"
+            android:label="党史书籍"/>
+        <activity android:name=".View.Media_Book_Detail"/>
     </application>
 
 </manifest>

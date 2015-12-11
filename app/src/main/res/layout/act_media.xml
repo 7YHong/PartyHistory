@@ -38,7 +38,8 @@
             android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:src="@drawable/icon_media_books"
-            android:text="书籍" />
+            android:text="书籍"
+            android:id="@+id/media_books" />
 
         <Space
             android:layout_width="0dp"
