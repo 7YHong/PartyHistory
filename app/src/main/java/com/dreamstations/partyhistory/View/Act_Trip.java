@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.dreamstations.partyhistory.Adapter.SimpleAdapter;
+import com.dreamstations.partyhistory.Adapter.CommonAdapter;
 import com.dreamstations.partyhistory.Model.Trip;
 import com.dreamstations.partyhistory.R;
 import com.dreamstations.partyhistory.ViewHolder;
@@ -31,7 +31,7 @@ public class Act_Trip extends AppCompatActivity{
         for (int i=0;i<8;i++){
             trips.add(new Trip());
         }
-        ListAdapter adapter=new SimpleAdapter<Trip>(getApplicationContext(), trips,R.layout.item_trip) {
+        ListAdapter adapter=new CommonAdapter<Trip>(getApplicationContext(), trips,R.layout.item_trip) {
             @Override
             protected void convert(ViewHolder holder, Trip item) {
             }

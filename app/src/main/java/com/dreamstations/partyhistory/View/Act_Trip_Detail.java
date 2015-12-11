@@ -1,89 +1,82 @@
 package com.dreamstations.partyhistory.View;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
-import android.util.SparseArray;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+
+import com.dreamstations.partyhistory.Adapter.CommonPagerAdapter;
 import com.dreamstations.partyhistory.R;
+
+import java.util.Arrays;
 
 /**
  * Created by 7YHong on 2015/11/29.
  */
-public class Act_Trip_Detail extends AppCompatActivity{
-    final static int[] imgs={R.drawable.item_trip_img,R.drawable.trip_detail_img,R.drawable.item_trip_img,R.drawable.trip_detail_img};
-    GridView gridView;
+public class Act_Trip_Detail extends AppCompatActivity {
+    final static Integer[] imgs = {R.drawable.item_trip_img, R.drawable.trip_detail_img, R.drawable.item_trip_img, R.drawable.trip_detail_img};
+    ViewPager gallery;
     float density;//屏幕密度，用来进行dp的转化
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //获取屏幕信息
-//        DisplayMetrics dm = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(dm);
-//        density = dm.density;
         setContentView(R.layout.act_trip_detail);
-//        gridView= (GridView) findViewById(R.id.home_trip_grid);
-//        ListAdapter adapter=new ImgAdapter();
-//        gridView.setAdapter(adapter);
-//        int size=imgs.length;
-//        //计算每张图的宽度与总的宽度
-//        int itemWidth = (int) ((dm.widthPixels-10)/3);
-//        int totalWidth = itemWidth*size;
-//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-//                totalWidth, ViewGroup.LayoutParams.MATCH_PARENT);
-//        gridView.setLayoutParams(params);
-//        gridView.setColumnWidth(itemWidth);
-//        gridView.setHorizontalSpacing(10);
-//        gridView.setNumColumns(size);
-    }
-
-
-    private class ImgAdapter extends BaseAdapter{
-        SparseArray<View> list=new SparseArray<>();
-
-        @Override
-        public int getCount() {
-            return imgs.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return imgs[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View v=list.get(position);
-            System.out.println(position);
-            if (v==null){
-                v=new ImageView(getApplicationContext());
-                v.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int)(160*density)));
-//                ((ImageView)v).setImageResource(imgs[position]);
-//                ((ImageView)v).setAdjustViewBounds(true);
-                v.setBackgroundResource(imgs[position]);
-                list.put(position, v);
+        gallery = (ViewPager) findViewById(R.id.trip_detail_gallery);
+        ((LinearLayout)gallery.getParent()).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gallery.dispatchTouchEvent(event);
             }
-            return v;
-        }
+        });
+        CommonPagerAdapter adapter = new CommonPagerAdapter<Integer>(getApplicationContext(), Arrays.asList(imgs)) {
+            @Override
+            public View instantiateView( Integer item) {
+                ImageView v = new ImageView(getApplicationContext());
+                v.setAdjustViewBounds(true);
+                v.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+                v.setScaleType(ImageView.ScaleType.FIT_XY);
+                v.setImageResource(item);
+                return v;
+            }
+        };
+        adapter.setEnableCirculatedScroll(true);   //开启滚动循环模式
+        gallery.setOffscreenPageLimit(3);
+        gallery.setPageMargin(8);
+        gallery.setAdapter(adapter);
+        gallery.setCurrentItem(401);               //开始就能向左滑动
+        gallery.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                gallery.invalidate();
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:finish();break;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

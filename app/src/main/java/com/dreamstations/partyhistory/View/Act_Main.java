@@ -1,18 +1,20 @@
 package com.dreamstations.partyhistory.View;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.dreamstations.partyhistory.Adapter.ViewPagerAdapter;
+import com.dreamstations.partyhistory.Adapter.CommonPagerAdapter;
 import com.dreamstations.partyhistory.R;
+
+import junit.runner.Version;
 
 import org.xutils.x;
 
@@ -24,17 +26,8 @@ import java.util.List;
  */
 public class Act_Main extends AppCompatActivity{
     //临时数据
-    List<Bitmap> images;
+    List<Integer> images=new ArrayList<>();
 
-    public void setImages() {
-        images=new ArrayList<>();
-        for (int i=0;i<2;i++){
-            Bitmap b=BitmapFactory.decodeResource(getResources(),R.drawable.home_viewpager_title1);
-            images.add(b);
-        }
-    }
-
-    private DrawerLayout mDrawerLayout;
     ViewPager titlevp;
     LinearLayout dots;
     @Override
@@ -50,8 +43,22 @@ public class Act_Main extends AppCompatActivity{
     private void initViews() {
         titlevp= (ViewPager) findViewById(R.id.home_vp);
         dots= (LinearLayout) findViewById(R.id.home_vp_dots);
-        setImages();
-        PagerAdapter vpAdapter=new ViewPagerAdapter(getApplicationContext(),images);
+//        setImages();
+        for (int i=0;i<2;i++)
+            images.add(R.drawable.home_viewpager_title1);
+        PagerAdapter vpAdapter=new CommonPagerAdapter<Integer>(getApplicationContext(),images) {
+            @Override
+            public View instantiateView(Integer item) {
+                ImageView iv=new ImageView(getApplicationContext());
+                iv.setAdjustViewBounds(true);
+                iv.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+                iv.setScaleType(ImageView.ScaleType.FIT_XY);
+                iv.setImageResource(item);
+                return iv;
+            }
+        };
         titlevp.setAdapter(vpAdapter);
         findViewById(R.id.home_trip).setOnClickListener(new View.OnClickListener() {
             @Override

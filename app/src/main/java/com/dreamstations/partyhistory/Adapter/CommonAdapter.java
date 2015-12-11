@@ -12,12 +12,12 @@ import java.util.List;
 /**
  * Created by 7YHong on 2015/11/29.
  */
-public abstract class SimpleAdapter<T> extends BaseAdapter{
+public abstract class CommonAdapter<T> extends BaseAdapter{
     protected Context context;
     protected List<T> mDatas;
     protected int ItemLayoutID;
 
-    public SimpleAdapter(Context context, List<T> mDatas, int itemLayoutID) {
+    public CommonAdapter(Context context, List<T> mDatas, int itemLayoutID) {
         this.context = context;
         this.mDatas = mDatas;
         ItemLayoutID = itemLayoutID;
